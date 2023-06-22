@@ -52,6 +52,10 @@ test:
 
 about:
   home: https://pypi.org/project/pyre2/
+  description: |
+    pyre2 is a Python extension that wraps Google's RE2 regular expression library. 
+    The RE2 engine compiles (strictly) regular expressions to deterministic 
+    finite automata, which guarantees linear-time behavior.
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
