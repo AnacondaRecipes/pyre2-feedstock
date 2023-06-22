@@ -38,7 +38,10 @@ requirements:
     - re2
 
 test:
+  requires:
+    - pip
   commands:
+    - pip check
     - export "PYTHONIOENCODING=utf8"  # [unix]
     - set "PYTHONIOENCODING=utf8"  # [win]
     - python -m unittest discover -f -s tests
