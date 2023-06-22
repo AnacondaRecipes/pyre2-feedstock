@@ -17,7 +17,7 @@ build:
 
 requirements:
   build:
-    - ninja
+    - ninja  # [unix]
     - cmake >=3.15
     - make  # [unix]
     - python
