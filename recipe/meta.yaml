@@ -27,7 +27,7 @@ requirements:
     - ninja-base  # [unix]
     - cython 0.29.32
     - pip
-    - re2
+    - re2 2022.04.01
     - setuptools
     - wheel
   run:
