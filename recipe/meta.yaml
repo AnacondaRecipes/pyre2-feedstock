@@ -25,7 +25,7 @@ requirements:
     - python
     - pybind11
     - ninja-base  # [unix]
-    - cython
+    - cython 0.29.32
     - pip
     - re2
     - setuptools
