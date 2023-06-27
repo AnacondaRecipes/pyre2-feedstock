@@ -11,32 +11,34 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 8
-  script: {{ PYTHON }} -m pip install . -vv
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   skip: true  # [py<36]
 
 requirements:
   build:
-    - ninja
-    - cmake >=3.15
-    - make                                   # [unix]
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython                                 # [build_platform != target_platform]
-    - pybind11                               # [build_platform != target_platform]
     - {{ compiler('cxx') }}
+    - {{ compiler('c') }}
+    - cmake >=3.15
+    - make  # [unix]
+    - ninja-base 1.10.2  # [unix]
   host:
     - python
-    - pybind11
-    - cython
+    - pybind11 2.10.4
+    - cython 0.29.32
     - pip
-    - re2
+    - re2 2022.04.01
+    - setuptools
+    - wheel
   run:
     - python
     - re2
 
 test:
+  requires:
+    - pip
   commands:
+    - pip check
     - export "PYTHONIOENCODING=utf8"  # [unix]
     - set "PYTHONIOENCODING=utf8"  # [win]
     - python -m unittest discover -f -s tests
@@ -47,6 +49,10 @@ test:
 
 about:
   home: https://pypi.org/project/pyre2/
+  description: |
+    pyre2 is a Python extension that wraps Google's RE2 regular expression library. 
+    The RE2 engine compiles (strictly) regular expressions to deterministic 
+    finite automata, which guarantees linear-time behavior.
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
