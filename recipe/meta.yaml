@@ -21,10 +21,10 @@ requirements:
     - {{ compiler('c') }}
     - cmake >=3.15
     - make  # [unix]
+    - ninja-base 1.10.2  # [unix]
   host:
     - python
     - pybind11 2.10.4
-    - ninja-base 1.10.2  # [unix]
     - cython 0.29.32
     - pip
     - re2 2022.04.01
