@@ -24,7 +24,7 @@ requirements:
   host:
     - python
     - pybind11
-    - ninja  # [unix]
+    - ninja-base  # [unix]
     - cython
     - pip
     - re2
